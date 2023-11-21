@@ -1,13 +1,26 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   width: 100vw;
   overflow: hidden;
+  background-color: #f1f1f1;
 }
 
-main {
-  width: 100%;
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: #475467;
 }
 
 header {
@@ -68,12 +81,6 @@ header .notification {
   height: 30px;
 }
 
-header button {
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
 header .notification {
   background: #322f33;
   width: 34px;
@@ -104,7 +111,8 @@ header .name {
   gap: 10px;
 }
 
-header .name p {
+header .name p,
+main .dc {
   font-size: 10px;
   margin: 0;
   line-height: 0;
@@ -113,7 +121,8 @@ header .name p {
   align-items: center;
 }
 
-header .name .dc {
+header .name .dc,
+main .dc {
   background-color: #36fba1;
   width: 30px;
   height: 30px;
@@ -130,6 +139,93 @@ header .notification:focus,
 header .name:focus {
   background-color: #656266;
   outline: solid blue 2px;
+}
+
+/* MAIN SECTION */
+main {
+  width: 100%;
+  min-height: calc(100vh - 56px);
+  position: relative;
+}
+
+.user-popup {
+  width: 360px;
+  height: fit-content;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background-color: #fff;
+  border-radius: 14px;
+  padding: 5px 5px 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-popup a {
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
+  padding: 0 8px;
+  height: 40px;
+  transition: all 0.3s;
+}
+
+.user-popup a:hover {
+  background-color: #f7f7f7;
+}
+
+.user-popup a:active {
+  background-color: #f0f0f0;
+}
+
+.user-popup a:focus {
+  background-color: unset;
+  outline: 2px solid #005bd3;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #f1f1f1;
+  margin: 10px 0;
+}
+
+.user-popup a,
+.user-popup a > * {
+  font-size: 14px;
+}
+
+.user-popup a:first-child {
+  background-color: #e2e0e0;
+  margin-bottom: 5px;
+}
+
+.user-popup a:first-child .dc {
+  margin-right: 10px;
+}
+
+.user-popup a:first-child .name {
+  font-weight: 700;
+  flex: 5;
+  font-size: 12px;
+}
+
+.user-popup a:first-child > span {
+  justify-self: right;
+  border: 1px solid blue;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-popup a:first-child > span svg {
+  width: 9px;
+}
+
+.user-popup a:nth-child(2) > svg {
+  width: 25px;
 }
 
 /* MEDIA QUERIES */
