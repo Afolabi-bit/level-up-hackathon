@@ -30,6 +30,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  z-index: 100;
 }
 
 .sm-screen-logo {
@@ -257,6 +258,12 @@ main {
   border-radius: 14px;
   padding: 4px 10px 10px;
   border: 1px solid #ebebeb;
+  opacity: 0;
+  transition: opacity 0.5s, position 0.2s;
+}
+
+.alerts.show {
+  opacity: 1;
 }
 
 .alerts .head {
