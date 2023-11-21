@@ -1,0 +1,212 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow: hidden;
+}
+
+main {
+  width: 100%;
+}
+
+header {
+  background-color: #1c181d;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.sm-screen-logo {
+  display: none;
+}
+
+header form {
+  position: relative;
+}
+
+header form svg {
+  position: absolute;
+  width: 14px;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+header form input {
+  background-color: #322f33;
+  border: 1px solid #616161;
+  border-radius: 8px;
+  width: 480px;
+  height: 32px;
+  padding-left: 30px;
+  transition: all 0.3s;
+  outline: none;
+  color: #fff;
+}
+
+header form input:hover {
+  border-color: #fff;
+}
+
+header form input:active {
+  border-color: #fff;
+  border-width: 2px;
+}
+
+header form input:focus {
+  border-color: #fff;
+  border-width: 2px;
+}
+
+header .user,
+header .notification {
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+header button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+header .notification {
+  background: #322f33;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+header .notification svg {
+  width: 20px;
+  height: 20px;
+}
+
+header .name {
+  background-color: #322f33;
+  margin-left: 10px;
+  height: 34px;
+  width: fit-content;
+  border-radius: 8px;
+  color: #fff;
+  padding-right: 2px;
+  padding-left: 8px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+header .name p {
+  font-size: 10px;
+  margin: 0;
+  line-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .name .dc {
+  background-color: #36fba1;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  color: #616161;
+}
+
+header .notification:hover,
+header .name:hover {
+  background-color: #656266;
+}
+
+header .notification:focus,
+header .name:focus {
+  background-color: #656266;
+  outline: solid blue 2px;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 900px) {
+  header form input {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .lg-screen-logo {
+    display: none;
+  }
+
+  .sm-screen-logo {
+    display: inline-block;
+    transform: translateY(6px);
+  }
+
+  header form input {
+    width: 240px;
+  }
+
+  header .notification {
+    background-color: transparent;
+  }
+
+  header .notification svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  header .name {
+    background-color: transparent;
+    height: 34px;
+    width: 34px;
+    padding: 0;
+    gap: 0;
+  }
+
+  header .brand,
+  .brand span {
+    display: none;
+  }
+
+  header .name:hover {
+    background-color: transparent;
+  }
+
+  header .name:focus {
+    background-color: transparent;
+    outline: none;
+  }
+
+  header .name:focus .dc {
+    outline: solid blue 2px;
+  }
+
+  header .name .dc {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  header {
+    padding: 0 10px;
+  }
+
+  header form input {
+    width: 170px;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  header form input {
+    width: 120px;
+  }
+}
