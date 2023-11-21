@@ -144,7 +144,7 @@ header .name:focus {
 /* MAIN SECTION */
 main {
   width: 100%;
-  min-height: calc(100vh - 56px);
+  min-height: 100%;
   position: relative;
 }
 
@@ -153,12 +153,17 @@ main {
   height: fit-content;
   position: absolute;
   top: 10px;
-  right: 20px;
+  right: -100%;
   background-color: #fff;
   border-radius: 14px;
   padding: 5px 5px 8px;
   display: flex;
   flex-direction: column;
+  transition: all 0.2s;
+}
+
+.user-popup.show {
+  right: 20px;
 }
 
 .user-popup a {
@@ -226,6 +231,21 @@ main {
 
 .user-popup a:nth-child(2) > svg {
   width: 25px;
+}
+
+.user-popup a.email {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.user-popup a.email span:first-child {
+  font-weight: 500;
+}
+
+.user-popup a.email span:last-child {
+  font-size: 10px;
 }
 
 /* MEDIA QUERIES */
@@ -301,8 +321,22 @@ main {
   }
 }
 
+@media screen and (max-width: 400px) {
+  .user-popup {
+    width: 300px;
+  }
+}
+
 @media screen and (max-width: 350px) {
   header form input {
     width: 120px;
+  }
+
+  .user-popup {
+    width: 270px;
+  }
+
+  .user-popup.show {
+    right: 10px;
   }
 }
