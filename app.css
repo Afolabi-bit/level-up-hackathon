@@ -361,7 +361,8 @@ main {
 }
 
 @media screen and (max-width: 400px) {
-  .user-popup {
+  .user-popup,
+  .alerts {
     width: 300px;
   }
 }
@@ -371,11 +372,13 @@ main {
     width: 120px;
   }
 
-  .user-popup {
+  .user-popup,
+  .alerts {
     width: 270px;
   }
 
-  .user-popup.show {
+  .user-popup.show,
+  .alerts {
     right: 10px;
   }
 }
