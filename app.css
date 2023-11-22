@@ -355,6 +355,11 @@ main section {
   scale: 0.6;
 }
 
+.plan-modal .close-modal:focus {
+  outline: 2px solid #005bd3;
+  border-radius: 8px;
+}
+
 .close-modal svg {
   pointer-events: none;
 }
@@ -369,6 +374,7 @@ section > article {
 
 article .top {
   position: relative;
+  padding: 10px;
 }
 
 .top h4 {
@@ -416,6 +422,86 @@ article .top > div p {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.top .arrow:focus {
+  outline: 2px solid #005bd3;
+  border-radius: 8px;
+}
+
+/* CARDS */
+.card {
+  overflow: hidden;
+  padding: 10px;
+  border-radius: 14px;
+  height: 60px;
+}
+
+.card.expand {
+  background-color: #f0f0f0;
+  height: fit-content;
+}
+
+.toggle-card {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card .indicator {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  margin-right: 20px;
+}
+
+.card svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  opacity: 0;
+}
+
+.card h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1c181d;
+}
+
+.card-matter {
+  height: 0;
+  position: relative;
+  padding: 10px;
+}
+
+.expand .card-matter {
+  height: fit-content;
+}
+
+.card-matter p {
+  font-size: 14px;
+  width: 75%;
+  color: #616161;
+}
+
+.card-matter p > a {
+  color: #005bd3;
+}
+
+.card-matter button {
+  background-color: #322f33;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-weight: 700;
+}
+
+.card-matter img {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 /* MEDIA QUERIES */

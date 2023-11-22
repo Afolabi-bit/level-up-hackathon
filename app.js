@@ -7,6 +7,13 @@ const count = document.getElementById("count");
 const progressBar = document.getElementById("progress-bar");
 const ink = document.getElementById("ink");
 
+const unchecked = document.querySelectorAll(".unchecked");
+const checked = document.querySelectorAll(".checked");
+const loading = document.querySelectorAll(".loading");
+const indicators = document.querySelectorAll(".state");
+
+unchecked.forEach((item) => (item.style.opacity = 1));
+
 userBtn.addEventListener("click", () => {
   alertPopup.classList.remove("show");
   userPopup.classList.toggle("show");
