@@ -409,9 +409,13 @@ article .top > div p {
 
 .top .arrow {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  padding: 0px 0px 10px 10px;
+  top: 0px;
+  right: 0px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* MEDIA QUERIES */
