@@ -144,9 +144,10 @@ header .name:focus {
 
 /* MAIN SECTION */
 main {
-  width: 100vw;
-  min-height: 100%;
+  max-width: 100vw !important;
+  min-height: calc(100vh - 56px);
   position: relative;
+  overflow-x: hidden;
 }
 
 .user-popup {
