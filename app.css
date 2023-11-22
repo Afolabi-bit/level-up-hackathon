@@ -1,9 +1,9 @@
 * {
   font-family: "Inter", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -188,13 +188,14 @@ main {
   background-color: #fff;
   border-radius: 14px;
   padding: 5px 5px 8px;
-  display: flex;
   flex-direction: column;
+  display: none;
   transition: all 0.2s;
 }
 
 .user-popup.show {
   right: 20px;
+  display: flex;
 }
 
 .user-popup a {
@@ -288,12 +289,13 @@ main {
   border-radius: 14px;
   padding: 4px 10px 10px;
   border: 1px solid #ebebeb;
-  opacity: 1;
+  display: none;
   transition: all 0.3s;
 }
 
 .alerts.show {
   right: 20px;
+  display: block;
 }
 
 .alerts .head {
@@ -337,6 +339,7 @@ main section {
   align-items: center;
   justify-content: space-between;
   padding: 0 60px 0 20px;
+  margin-bottom: 20px;
   position: relative;
 }
 
@@ -356,6 +359,61 @@ main section {
   pointer-events: none;
 }
 
+section > article {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #f7f7f7;
+  border-radius: 18px;
+  padding: 10px;
+}
+
+article .top {
+  position: relative;
+}
+
+.top h4 {
+  font-size: 17px;
+  margin: 0;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.top p {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+article .top > div {
+  display: flex;
+  align-items: baseline;
+}
+
+article .top > div p {
+  font-size: 14px;
+}
+
+.top .progress {
+  width: 120px;
+  height: 7px;
+  background-color: #e7e7e7;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.top .ink {
+  background-color: #1c181d;
+  height: 100%;
+  transition: width 0.3s;
+  border-radius: 10px;
+}
+
+.top .arrow {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 10px;
+}
+
 /* MEDIA QUERIES */
 @media screen and (max-width: 900px) {
   header form input {
@@ -365,9 +423,6 @@ main section {
   main section {
     width: 600px;
   }
-}
-
-@media screen and (max-width: 800px) {
 }
 
 @media screen and (max-width: 650px) {
@@ -435,6 +490,10 @@ main section {
     padding: 0 0 20px 20px;
     flex-direction: column;
   }
+
+  section article {
+    border-radius: 0;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -448,7 +507,7 @@ main section {
   }
 
   .plan-modal {
-    height: 104px;
+    height: 114px;
     padding: 0 0 20px 20px;
   }
 
@@ -475,7 +534,7 @@ main section {
   }
 
   .user-popup.show,
-  .alerts {
+  .alerts.show {
     right: 10px;
   }
 }
