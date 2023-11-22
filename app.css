@@ -323,6 +323,9 @@ main section {
   width: 800px;
   margin: 0 auto;
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .plan-modal {
@@ -358,6 +361,13 @@ main section {
   header form input {
     width: 300px;
   }
+
+  main section {
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 800px) {
 }
 
 @media screen and (max-width: 650px) {
@@ -413,6 +423,18 @@ main section {
     width: 34px;
     height: 34px;
   }
+
+  main section {
+    width: 100%;
+  }
+
+  .plan-modal {
+    height: 80px;
+    align-items: flex-start;
+    border-radius: 0px;
+    padding: 0 0 20px 20px;
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -423,6 +445,15 @@ main section {
   header form input {
     width: 170px;
     font-size: 10px;
+  }
+
+  .plan-modal {
+    height: 104px;
+    padding: 0 0 20px 20px;
+  }
+
+  .plan-modal p {
+    margin-right: 70px;
   }
 }
 
