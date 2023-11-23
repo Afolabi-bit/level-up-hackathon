@@ -6,15 +6,35 @@ const closeModalBtn = document.getElementById("close-modal");
 const count = document.getElementById("count");
 const progressBar = document.getElementById("progress-bar");
 const ink = document.getElementById("ink");
+const arrow = document.getElementById("arrow");
 
-const unchecked = document.querySelectorAll(".unchecked");
-const checked = document.querySelectorAll(".checked");
-const loading = document.querySelectorAll(".loading");
-const indicators = document.querySelectorAll(".state");
+const indicators = document.querySelectorAll(".indicator");
 const toggleBtns = document.querySelectorAll(".toggle-card");
 const cards = document.querySelectorAll(".card");
 
-unchecked.forEach((item) => (item.style.opacity = 1));
+function calcProgressBar() {
+  const checked = document.querySelectorAll(".checked");
+  if (checked.length < 1) {
+    count.innerHTML = "1";
+  } else {
+    count.textContent = `${checked.length}`;
+  }
+  ink.style.width = `${(+count.textContent / 5) * 120}px`;
+  console.log(checked.length);
+}
+
+calcProgressBar();
+
+arrow.addEventListener("click", () => {
+  document.getElementById("guide").classList.toggle("open");
+});
+
+indicators.forEach((ind) => {
+  ind.addEventListener("click", () => {
+    ind.classList.toggle("checked");
+    calcProgressBar();
+  });
+});
 
 userBtn.addEventListener("click", () => {
   alertPopup.classList.remove("show");
@@ -29,8 +49,6 @@ alertBtn.addEventListener("click", () => {
 closeModalBtn.addEventListener("click", (e) => {
   e.target.parentElement.remove();
 });
-
-ink.style.width = `${(+count.textContent / 5) * 120}px`;
 
 toggleBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
