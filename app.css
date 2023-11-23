@@ -52,6 +52,49 @@ a {
   outline: 2px solid #005bd3;
 }
 
+.btn-2 {
+  background-color: #322f33;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-weight: 700;
+}
+
+.btn-2:hover {
+  background-color: #616161;
+}
+
+.btn-2:active {
+  background-color: #616161;
+  outline: 2px solid #000;
+}
+
+.btn-2:focus {
+  background-color: #1c181d;
+  outline-color: #005bd3;
+}
+
+.btn-3 {
+  background-color: #fff;
+  color: #1c181d;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-weight: 700;
+}
+
+.btn-3:hover {
+  background: #f7f7f7;
+}
+
+.btn-3:active {
+  background: #f0f0f0;
+}
+
+.btn-3:active {
+  background: #fff;
+  outline: 2px solid #005bd3;
+}
+
 header {
   background-color: #1c181d;
   height: 56px;
@@ -549,9 +592,9 @@ article .top > div p {
   border-radius: 8px;
 }
 
-.card.expand .action:focus {
+/* .card.expand .action:focus {
   outline: none;
-}
+} */
 
 .card-matter {
   height: 0;
@@ -571,14 +614,6 @@ article .top > div p {
 
 .card-matter p > a {
   color: #005bd3;
-}
-
-.card-matter button {
-  background-color: #322f33;
-  color: #fff;
-  border-radius: 8px;
-  padding: 10px 12px;
-  font-weight: 700;
 }
 
 .card-matter img {
