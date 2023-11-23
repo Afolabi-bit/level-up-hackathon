@@ -11,6 +11,8 @@ const unchecked = document.querySelectorAll(".unchecked");
 const checked = document.querySelectorAll(".checked");
 const loading = document.querySelectorAll(".loading");
 const indicators = document.querySelectorAll(".state");
+const toggleBtns = document.querySelectorAll(".toggle-card");
+const cards = document.querySelectorAll(".card");
 
 unchecked.forEach((item) => (item.style.opacity = 1));
 
@@ -29,3 +31,12 @@ closeModalBtn.addEventListener("click", (e) => {
 });
 
 ink.style.width = `${(+count.textContent / 5) * 120}px`;
+
+toggleBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    cards.forEach((card) => {
+      card.classList.remove("expand");
+    });
+    btn.parentElement.classList.add("expand");
+  });
+});
