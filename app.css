@@ -707,6 +707,14 @@ article .top > div p {
   section article {
     border-radius: 0;
   }
+
+  .card.expand img {
+    display: none;
+  }
+
+  .card-matter p {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 450px) {
