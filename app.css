@@ -592,10 +592,6 @@ article .top > div p {
   border-radius: 8px;
 }
 
-/* .card.expand .action:focus {
-  outline: none;
-} */
-
 .card-matter {
   height: 0;
   position: relative;
