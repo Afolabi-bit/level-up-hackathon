@@ -235,6 +235,7 @@ main {
   flex-direction: column;
   display: none;
   transition: all 0.2s;
+  z-index: 1;
 }
 
 .user-popup.show {
@@ -335,6 +336,7 @@ main {
   border: 1px solid #ebebeb;
   display: none;
   transition: all 0.3s;
+  z-index: 1;
 }
 
 .alerts.show {
