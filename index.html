@@ -241,7 +241,14 @@
                 <div id="ink" class="ink"></div>
               </div>
             </div>
-            <button class="arrow" id="arrow">
+            <button
+              class="arrow"
+              id="arrow"
+              aria-expanded="false"
+              aria-controls="cards-wrapper"
+              aria-label="toggle setup guide"
+              aria-haspopup="true"
+            >
               <svg
                 width="41"
                 height="40"
@@ -258,7 +265,12 @@
               </svg>
             </button>
           </div>
-          <div class="cards-wrapper">
+          <div
+            id="cards-wrapper"
+            class="cards-wrapper"
+            role="menu"
+            aria-labelledby="arrow"
+          >
             <div class="card">
               <div class="toggle-card">
                 <button class="indicator" id="indicator">

@@ -31,11 +31,6 @@ closeModalBtn.addEventListener("click", (e) => {
   e.target.parentElement.remove();
 });
 
-// Opens the setup guide
-arrow.addEventListener("click", () => {
-  document.getElementById("guide").classList.toggle("open");
-});
-
 // Adds the status of each step of the guide to the progress bar
 indicators.forEach((ind) => {
   ind.addEventListener("click", () => {
@@ -182,3 +177,34 @@ focusAbleAlertItems.forEach((menuitem, menuIndex) => {
     alertArrowKeyNavigation(e, menuIndex)
   );
 });
+
+//
+// Setup Guide *******************************************
+//
+
+const cardsWrapper = document.getElementById("cards-wrapper");
+let cardItems = document.querySelectorAll("#cards-wrapper > [menuitem]");
+console.log(cardItems);
+
+function closeGuide() {
+  arrow.ariaExpanded = "false";
+  arrow.focus();
+  // cardsWrapper.remove("open");
+}
+
+function openGuide() {
+  arrow.ariaExpanded = "true";
+}
+
+// Toggles the setup guide
+const toggleSetupGuide = () => {
+  let isExpanded = arrow.attributes["aria-expanded"].value;
+  cardsWrapper.classList.toggle("open");
+
+  if (isExpanded === "true") {
+    closeGuide();
+  } else {
+    openGuide();
+  }
+};
+arrow.addEventListener("click", toggleSetupGuide);

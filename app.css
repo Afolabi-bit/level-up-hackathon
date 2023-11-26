@@ -505,13 +505,12 @@ article .top > div p {
 
 /* CARDS */
 .cards-wrapper {
-  height: 0;
-  opacity: 0;
+  height: fit-content;
+  display: none;
 }
 
-.open .cards-wrapper {
-  height: fit-content;
-  opacity: 1;
+.open.cards-wrapper {
+  display: block;
 }
 
 .card {
