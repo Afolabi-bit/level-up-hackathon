@@ -21,17 +21,10 @@ function calcProgressBar() {
     count.textContent = `${checked.length}`;
   }
   ink.style.width = `${(+count.textContent / 5) * 120}px`;
-  console.log(checked.length);
 }
 
 // Default call that sets the progress bar and ink length
 calcProgressBar();
-
-// Toggles the alerts button
-alertBtn.addEventListener("click", () => {
-  userPopup.classList.remove("show");
-  alertPopup.classList.toggle("show");
-});
 
 // Closes the trial modal
 closeModalBtn.addEventListener("click", (e) => {
@@ -105,10 +98,6 @@ const toggleMenu = () => {
 };
 userBtn.addEventListener("click", toggleMenu);
 
-focusAbleMenuItems.forEach((menuitem, menuIndex) => {
-  menuitem.addEventListener("keyup", (e) => arrowKeyNavigation(e, menuIndex));
-});
-
 function arrowKeyNavigation(e, menuIndex) {
   let nextItem = focusAbleMenuItems.item(menuIndex + 1);
   let prevItem = focusAbleMenuItems.item(menuIndex - 1);
@@ -127,3 +116,69 @@ function arrowKeyNavigation(e, menuIndex) {
     prevItem.focus();
   }
 }
+focusAbleMenuItems.forEach((menuitem, menuIndex) => {
+  menuitem.addEventListener("keyup", (e) => arrowKeyNavigation(e, menuIndex));
+});
+
+// ALERT ACCESSIBILTY
+let focusAbleAlertItems = alertPopup.querySelectorAll('[role="menuitem"]');
+
+function closeAlert() {
+  alertBtn.ariaExpanded = "false";
+  alertBtn.focus();
+  alertPopup.classList.remove("show");
+}
+
+function closeAlertWithEscape(e) {
+  if (e.key == "Escape") {
+    closeAlert();
+  }
+}
+
+function openAlert() {
+  alertBtn.ariaExpanded = "true";
+  focusAbleAlertItems.item(0).focus();
+
+  alertPopup.addEventListener("keyup", (e) => closeAlertWithEscape(e));
+}
+// Toggles the alerts button
+
+const toggleAlert = () => {
+  let isExpanded = alertBtn.attributes["aria-expanded"].value;
+
+  userPopup.classList.remove("show");
+  alertPopup.classList.toggle("show");
+
+  if (isExpanded === "true") {
+    closeAlert();
+  } else {
+    openAlert();
+  }
+};
+alertBtn.addEventListener("click", toggleAlert);
+
+function alertArrowKeyNavigation(e, menuIndex) {
+  let nextItem = focusAbleAlertItems.item(menuIndex + 1);
+  let prevItem = focusAbleAlertItems.item(menuIndex - 1);
+
+  if (e.key == "ArrowDown" || e.key == "ArrowRight") {
+    if (menuIndex == focusAbleAlertItems.length - 1) {
+      focusAbleAlertItems.item(0).focus();
+      return;
+    }
+    nextItem.focus();
+  }
+  if (e.key == "ArrowUp" || e.key == "ArrowLeft") {
+    if (menuIndex == 0) {
+      focusAbleAlertItems.item(focusAbleAlertItems.length - 1).focus();
+      return;
+    }
+    prevItem.focus();
+  }
+}
+
+focusAbleAlertItems.forEach((menuitem, menuIndex) => {
+  menuitem.addEventListener("keyup", (e) =>
+    alertArrowKeyNavigation(e, menuIndex)
+  );
+});

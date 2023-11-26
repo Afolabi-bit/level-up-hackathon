@@ -354,10 +354,25 @@ main {
   line-height: 0;
 }
 
+.alerts .head > button {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+}
+
+.alerts .head > button:focus {
+  outline: 2px solid #005bd3;
+}
+
+.alerts .head > .button svg {
+  pointer-events: none;
+}
+
 .alerts div:last-child {
   background-color: #f1f1f1;
   padding: 10px 12px;
   text-align: center;
+  border-radius: 4px;
 }
 
 .alerts div:last-child p {
