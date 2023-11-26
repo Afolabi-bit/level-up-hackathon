@@ -64,11 +64,6 @@ a {
   background-color: #616161;
 }
 
-.btn-2:active {
-  background-color: #616161;
-  outline: 2px solid #000;
-}
-
 .btn-2:focus {
   background-color: #1c181d;
   outline-color: #005bd3;
@@ -84,10 +79,6 @@ a {
 
 .btn-3:hover {
   background: #f7f7f7;
-}
-
-.btn-3:active {
-  background: #f0f0f0;
 }
 
 .btn-3:active {
@@ -413,6 +404,7 @@ main section {
 .plan-modal .close-modal {
   position: absolute;
   right: 5px;
+  top: 5px;
   cursor: pointer;
   scale: 0.6;
 }
@@ -609,13 +601,14 @@ article .top > div p {
 }
 
 .card-matter {
-  height: 0;
+  height: fit-content;
   position: relative;
   padding: 0 10px;
+  display: none;
 }
 
 .expand .card-matter {
-  height: fit-content;
+  display: block;
 }
 
 .card-matter p {
@@ -709,11 +702,17 @@ article .top > div p {
   }
 
   .plan-modal {
-    height: 80px;
-    align-items: flex-start;
+    height: 100px;
+    align-items: start;
+    justify-content: start;
     border-radius: 0px;
-    padding: 0 0 20px 20px;
+    padding: 20px 0 20px 20px;
     flex-direction: column;
+    gap: 0;
+  }
+
+  .plan-modal p {
+    margin: 0 0 10px;
   }
 
   section article {

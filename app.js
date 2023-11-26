@@ -175,17 +175,19 @@ focusAbleAlertItems.forEach((menuitem, menuIndex) => {
 const cardsWrapper = document.getElementById("cards-wrapper");
 let cardItems = document.querySelectorAll("#cards-wrapper  [role='menuitem']");
 
+// Iteratively closes all cards
 function removeExpandClass() {
   cards.forEach((card) =>
     card.addEventListener("click", card.classList.remove("expand"))
   );
 }
 
-function arrowUpDownKeysForCards(e, index) {
+// Handles the arrow keys to navigate through cards
+function arrowKeysGuideNavigation(e, index) {
   let nextCard = cards.item(index + 1);
   let prevCard = cards.item(index - 1);
 
-  if (e.key == "ArrowUp") {
+  if (e.key == "ArrowUp" || e.key == "ArrowLeft") {
     removeExpandClass();
     if (index == 0) {
       cards.item(cards.length - 1).focus();
@@ -195,7 +197,7 @@ function arrowUpDownKeysForCards(e, index) {
     prevCard.focus();
     prevCard.classList.add("expand");
   }
-  if (e.key == "ArrowDown") {
+  if (e.key == "ArrowDown" || e.key == "ArrowRight") {
     removeExpandClass();
     if (index == cards.length - 1) {
       cards.item(0).focus();
@@ -207,9 +209,10 @@ function arrowUpDownKeysForCards(e, index) {
   }
 }
 cards.forEach((card, index) => {
-  card.addEventListener("keyup", (e) => arrowUpDownKeysForCards(e, index));
+  card.addEventListener("keyup", (e) => arrowKeysGuideNavigation(e, index));
 });
 
+// EVENT(click): Close all cards, opens clicked one
 cards.forEach((card) =>
   card.addEventListener("click", () => {
     removeExpandClass();
@@ -217,11 +220,22 @@ cards.forEach((card) =>
   })
 );
 
+// close the setup guide when Escape key is pressed
+function closeGuideWithEscapeKey(e) {
+  if (e.key == "Escape") {
+    arrow.focus();
+    arrow.ariaExpanded = "false";
+    cardsWrapper.classList.remove("open");
+  }
+}
+
 function openGuide() {
   arrow.ariaExpanded = "true";
+  removeExpandClass();
   cards.item(0).classList.add("expand");
   cards.item(0).focus();
-  console.log(cards.item(0));
+
+  cardsWrapper.addEventListener("keyup", (e) => closeGuideWithEscapeKey(e));
 }
 
 function closeGuide() {
@@ -242,4 +256,13 @@ const toggleSetupGuide = () => {
 };
 arrow.addEventListener("click", toggleSetupGuide);
 
-// Toggles each item on the setup guide
+cards.forEach((card) =>
+  card.addEventListener("keyup", (e) => {
+    let tabItem = card.querySelectorAll('[role="tablist"]');
+
+    if (e.key == "Enter" || e.key == " ") {
+      console.log(tabItem);
+      tabItem.item(0).focus();
+    }
+  })
+);
