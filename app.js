@@ -39,16 +39,6 @@ indicators.forEach((ind) => {
   });
 });
 
-// Toggles each item on the setup guide
-toggleBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    cards.forEach((card) => {
-      card.classList.remove("expand");
-    });
-    btn.parentElement.classList.add("expand");
-  });
-});
-
 // ********************
 
 // ********************
@@ -183,23 +173,66 @@ focusAbleAlertItems.forEach((menuitem, menuIndex) => {
 //
 
 const cardsWrapper = document.getElementById("cards-wrapper");
-let cardItems = document.querySelectorAll("#cards-wrapper > [menuitem]");
-console.log(cardItems);
+let cardItems = document.querySelectorAll("#cards-wrapper  [role='menuitem']");
+
+function removeExpandClass() {
+  cards.forEach((card) =>
+    card.addEventListener("click", card.classList.remove("expand"))
+  );
+}
+
+function arrowUpDownKeysForCards(e, index) {
+  let nextCard = cards.item(index + 1);
+  let prevCard = cards.item(index - 1);
+
+  if (e.key == "ArrowUp") {
+    removeExpandClass();
+    if (index == 0) {
+      cards.item(cards.length - 1).focus();
+      cards.item(cards.length - 1).classList.add("expand");
+      return;
+    }
+    prevCard.focus();
+    prevCard.classList.add("expand");
+  }
+  if (e.key == "ArrowDown") {
+    removeExpandClass();
+    if (index == cards.length - 1) {
+      cards.item(0).focus();
+      cards.item(0).classList.add("expand");
+      return;
+    }
+    nextCard.focus();
+    nextCard.classList.add("expand");
+  }
+}
+cards.forEach((card, index) => {
+  card.addEventListener("keyup", (e) => arrowUpDownKeysForCards(e, index));
+});
+
+cards.forEach((card) =>
+  card.addEventListener("click", () => {
+    removeExpandClass();
+    card.classList.add("expand");
+  })
+);
+
+function openGuide() {
+  arrow.ariaExpanded = "true";
+  cards.item(0).classList.add("expand");
+  cards.item(0).focus();
+  console.log(cards.item(0));
+}
 
 function closeGuide() {
   arrow.ariaExpanded = "false";
   arrow.focus();
-  // cardsWrapper.remove("open");
 }
-
-function openGuide() {
-  arrow.ariaExpanded = "true";
-}
-
 // Toggles the setup guide
 const toggleSetupGuide = () => {
   let isExpanded = arrow.attributes["aria-expanded"].value;
   cardsWrapper.classList.toggle("open");
+  arrow.classList.toggle("flip");
 
   if (isExpanded === "true") {
     closeGuide();
@@ -208,3 +241,5 @@ const toggleSetupGuide = () => {
   }
 };
 arrow.addEventListener("click", toggleSetupGuide);
+
+// Toggles each item on the setup guide

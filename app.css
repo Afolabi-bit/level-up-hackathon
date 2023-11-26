@@ -494,7 +494,7 @@ article .top > div p {
   width: 25px;
 }
 
-.open .top .arrow svg {
+.top .arrow.flip svg {
   transform: rotateX(180deg);
 }
 
@@ -523,6 +523,10 @@ article .top > div p {
 .card.expand {
   background-color: #f0f0f0;
   height: fit-content;
+}
+
+.card.expand:focus {
+  outline: 2px solid #005bd3;
 }
 
 .toggle-card {
@@ -601,11 +605,7 @@ article .top > div p {
   font-weight: 500;
   margin: 0;
   text-align: left;
-}
-
-.card .action:focus {
-  outline: 2px solid #005bd3;
-  border-radius: 8px;
+  padding-left: 5px;
 }
 
 .card-matter {
